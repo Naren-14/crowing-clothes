@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithRedirect,
@@ -6,16 +6,16 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+} from "firebase/auth";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
-  authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
-  projectId: 'crwn-clothing-db-98d4d',
-  storageBucket: 'crwn-clothing-db-98d4d.appspot.com',
-  messagingSenderId: '626766232035',
-  appId: '1:626766232035:web:506621582dab103a4d08d6',
+  apiKey: "AIzaSyDTIO4Ar0HdliyjoNKqgXv1oJ5Y4p-03sw",
+  authDomain: "crown-clothing-database-react.firebaseapp.com",
+  projectId: "crown-clothing-database-react",
+  storageBucket: "crown-clothing-database-react.appspot.com",
+  messagingSenderId: "66200702258",
+  appId: "1:66200702258:web:c926c7e7f9354ffbafdb2b",
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -23,7 +23,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: 'select_account',
+  prompt: "select_account",
 });
 
 export const auth = getAuth();
@@ -40,7 +40,7 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userDocRef = doc(db, "users", userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -56,7 +56,7 @@ export const createUserDocumentFromAuth = async (
         ...additionalInformation,
       });
     } catch (error) {
-      console.log('error creating the user', error.message);
+      console.log("error creating the user", error.message);
     }
   }
 
